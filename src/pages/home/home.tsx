@@ -9,6 +9,7 @@ import {
 import { Button, Layout, Menu, Space, theme } from 'antd'
 import { decrement, increment } from '../../global/redux/counter/couter-slice'
 import { useAppSelector, useAppDispatch } from '../../global/redux/hooks'
+import { fetchProducts } from '../../apis/products'
 
 const { Header, Sider, Content } = Layout
 
@@ -16,6 +17,8 @@ export default function Home() {
   const [collapsed, setCollapsed] = useState(false)
   const count = useAppSelector((state) => state.counter.value)
   const dispatch = useAppDispatch()
+
+  fetchProducts()
 
   const {
     token: { colorBgContainer, borderRadiusLG },
